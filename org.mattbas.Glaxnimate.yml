@@ -25,4 +25,4 @@ modules:
             -
                 type: git
                 url: https://gitlab.com/mattbas/glaxnimate.git
-                commit: 789831cbee11a28cd77e17170cc64ab817e24035
+                commit: eac6aba180d797774750f40da9da9ffd8d29bc0a
