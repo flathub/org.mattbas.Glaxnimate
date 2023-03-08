@@ -19,8 +19,10 @@ modules:
         config-opts:
             - -DCMAKE_BUILD_TYPE=RelWithDebInfo
             - -DGLAXNIMATE_SYSTEM_POTRACE=OFF
+        build-commands:
+            - ninja translations
         sources:
             -
                 type: git
                 url: https://gitlab.com/mattbas/glaxnimate.git
-                commit: 09923d6fa8570f90e22b87802d375587e3b82aa8
+                commit: eac6aba180d797774750f40da9da9ffd8d29bc0a
