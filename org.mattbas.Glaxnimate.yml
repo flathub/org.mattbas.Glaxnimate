@@ -36,3 +36,6 @@ modules:
                 type: git
                 url: https://gitlab.com/mattbas/glaxnimate.git
                 commit: 65f7406393e0b3868654fd71b3a335a86ffd2c47
+            -
+                type: patch
+                path: fix_appdata.patch

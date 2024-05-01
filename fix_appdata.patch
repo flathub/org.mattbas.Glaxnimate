@@ -1,0 +1,48 @@
+From 67da5802325cdc7c327842669a264463bdee23cd Mon Sep 17 00:00:00 2001
+From: Sabri Ünal <yakushabb@gmail.com>
+Date: Thu, 2 May 2024 01:13:40 +0300
+Subject: [PATCH] appdata: Update appdata
+
+- Add developer information via developer tag
+- Add missing launchable tag
+- Add several URLs
+---
+ deploy/org.mattbas.Glaxnimate.metainfo.xml | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/deploy/org.mattbas.Glaxnimate.metainfo.xml b/deploy/org.mattbas.Glaxnimate.metainfo.xml
+index 7d85828..e3c5890 100644
+--- a/deploy/org.mattbas.Glaxnimate.metainfo.xml
++++ b/deploy/org.mattbas.Glaxnimate.metainfo.xml
+@@ -5,6 +5,9 @@
+     <metadata_license>CC-BY-SA-4.0</metadata_license>
+     <project_license>GPL-3.0+</project_license>
+     <name>Glaxnimate</name>
++    <developer id="org.mattbas">
++        <name translate="no">Mattia "Glax" Basaglia</name>
++    </developer>
+     <summary>Vector Animation Editor</summary>
+     <description>
+         <p>Glaxnimate is an open-source vector animation and motion design desktop application.</p>
+@@ -38,8 +41,8 @@
+     <url type="bugtracker">https://gitlab.com/mattbas/glaxnimate/-/issues</url>
+     <url type="help">https://glaxnimate.mattbas.org/manual/</url>
+     <url type="donation">https://glaxnimate.mattbas.org/donate/</url>
+-<!-- url type=contribute is not recognized but it should be valid o_O -->
+-<!--     <url type="contribute">https://glaxnimate.mattbas.org/contributing/</url> -->
++    <url type="contribute">https://glaxnimate.mattbas.org/contributing/</url>
++    <url type="vcs-browser">https://gitlab.com/mattbas/glaxnimate</url>
+     <screenshots>
+         <screenshot type="default">
+             <caption>Glaxnimate main window</caption>
+@@ -52,6 +55,7 @@
+         <mediatype>application/vnd.glaxnimate.rawr+json</mediatype>
+     </provides>
+     <content_rating type="oars-1.1" />
++    <launchable type="desktop-id">org.mattbas.Glaxnimate.desktop</launchable>
+     <releases>
+         <release version="0.5.4" date="2023-09-09"></release>
+     </releases>
+--
+libgit2 1.7.2
+
