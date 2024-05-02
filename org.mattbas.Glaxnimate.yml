@@ -1,6 +1,6 @@
 app-id: org.mattbas.Glaxnimate
 runtime: org.kde.Platform
-runtime-version: "6.5"
+runtime-version: "6.6"
 sdk: org.kde.Sdk
 sdk-version: "6.5"
 command: glaxnimate
@@ -36,3 +36,6 @@ modules:
                 type: git
                 url: https://gitlab.com/mattbas/glaxnimate.git
                 commit: 65f7406393e0b3868654fd71b3a335a86ffd2c47
+            -
+                type: patch
+                path: fix_appdata.patch
