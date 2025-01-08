@@ -1,0 +1,29 @@
+From 4fb2b67a0f0ce2fbffb6fe9f87c3bf7914c8a602 Mon Sep 17 00:00:00 2001
+From: Mattia Basaglia <glax@dragon.best>
+Date: Tue, 30 Apr 2024 16:25:56 +0200
+Subject: [PATCH] Fix build for newer ffmpeg libavformat
+
+---
+ src/core/io/video/video_format.cpp | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/src/core/io/video/video_format.cpp b/src/core/io/video/video_format.cpp
+index fa409284d..4eea8b8fb 100644
+--- a/src/core/io/video/video_format.cpp
++++ b/src/core/io/video/video_format.cpp
+@@ -652,7 +652,12 @@ private:
+         return device->read((char*)buf, buf_size);
+     }
+ 
++
++#if LIBAVFORMAT_VERSION_MAJOR >= 61
++    static int write_packet(void *opaque, const uint8_t *buf, int buf_size)
++#else
+     static int write_packet(void *opaque, uint8_t *buf, int buf_size)
++#endif
+     {
+         QIODevice* device = (QIODevice*)opaque;
+         return device->write((char*)buf, buf_size);
+-- 
+GitLab
+
