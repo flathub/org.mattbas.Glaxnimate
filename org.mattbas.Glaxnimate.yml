@@ -1,41 +1,37 @@
 app-id: org.mattbas.Glaxnimate
 runtime: org.kde.Platform
-runtime-version: "6.6"
+runtime-version: "6.9"
 sdk: org.kde.Sdk
-sdk-version: "6.5"
 command: glaxnimate
 finish-args:
-    - --share=ipc
-    - --share=network
-    - --socket=fallback-x11
-    - --socket=wayland
-    - --filesystem=host
-    - --device=dri
+  - --share=ipc
+  - --share=network
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --filesystem=host
+  - --device=dri
 modules:
-    -
-        name: potrace
-        buildsystem: autotools
-        builddir: true
-        config-opts:
-            - --with-libpotrace
-        sources:
-            -
-                type: archive
-                url: http://potrace.sourceforge.net/download/1.16/potrace-1.16.tar.gz
-                sha256: be8248a17dedd6ccbaab2fcc45835bb0502d062e40fbded3bc56028ce5eb7acc
-    -
-        name: glaxnimate
-        buildsystem: cmake-ninja
-        builddir: true
-        config-opts:
-            - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        build-commands:
-            - ninja translations
-        sources:
-            -
-                type: git
-                url: https://gitlab.com/mattbas/glaxnimate.git
-                commit: 65f7406393e0b3868654fd71b3a335a86ffd2c47
-            -
-                type: patch
-                path: fix_appdata.patch
+  - name: potrace
+    builddir: true
+    config-opts:
+      - --with-libpotrace
+    sources:
+      - type: archive
+        url: http://potrace.sourceforge.net/download/1.16/potrace-1.16.tar.gz
+        sha256: be8248a17dedd6ccbaab2fcc45835bb0502d062e40fbded3bc56028ce5eb7acc
+  - name: glaxnimate
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    build-commands:
+      - ninja translations
+    sources:
+      - type: git
+        url: https://invent.kde.org/graphics/glaxnimate.git
+        tag: 0.5.4
+        commit: 65f7406393e0b3868654fd71b3a335a86ffd2c47
+      - type: patch
+        path: fix_appdata.patch
+      - type: patch
+        path: fix-build-with-ffmpeg.patch
